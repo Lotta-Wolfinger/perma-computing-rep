@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROHBAU – Zine A3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page { size: A3 landscape; margin: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #b0b0b0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 2.5rem;
+    }
+
+    .hint {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #555;
+      letter-spacing: 0.12em;
+      align-self: flex-start;
+    }
+
+    .sheet {
+      width: 420mm;
+      height: 297mm;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+
+    svg.bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .tx {
+      position: absolute;
+      font-family: 'Space Mono', 'Courier New', monospace;
+      color: #000;
+    }
+
+    @media print {
+      body { background: none; padding: 0; gap: 0; }
+      .hint { display: none; }
+      .sheet { box-shadow: none; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SEITE A — AUSSEN
+     Links (x 0–210): Rückseite
+     Rechts (x 210–420): Titelseite
+     ══════════════════════════════════════════════════════════════ -->
+<p class="hint">▲ SEITE A — aussen drucken &nbsp;|&nbsp; A3 quer, Ränder: keine &nbsp;|&nbsp; dann wenden, SEITE B drucken, in der Mitte falzen</p>
+<div class="sheet">
+<svg class="bg" viewBox="0 0 420 297" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <!-- Beton-Schraffur 45°, lichte Abstände -->
+  <pattern id="beton" patternUnits="userSpaceOnUse" width="4.5" height="4.5">
+    <line x1="0" y1="4.5" x2="4.5" y2="0" stroke="#000" stroke-width="0.28"/>
+  </pattern>
+  <!-- Erdreich-Schraffur -->
+  <pattern id="erde" patternUnits="userSpaceOnUse" width="5" height="5">
+    <line x1="0" y1="5" x2="5" y2="0" stroke="#555" stroke-width="0.22"/>
+    <line x1="0" y1="2.5" x2="2.5" y2="0" stroke="#555" stroke-width="0.14"/>
+  </pattern>
+</defs>
+
+<!-- ─── RÜCKSEITE (links, x=0–210) ────────────────────────────── -->
+
+<!-- Schnittzeichnung: 2 Achsen, 3 Geschosse, als dekorativer Hintergrund -->
+
+<!-- Erdreich -->
+<rect x="0" y="262" width="210" height="35" fill="url(#erde)" opacity="0.35"/>
+<line x1="0" y1="262" x2="210" y2="262" stroke="#000" stroke-width="0.55"/>
+
+<!-- Fundament / Bodenplatte -->
+<rect x="14" y="257" width="184" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.45"/>
+
+<!-- Stützen: Achse 1 x=28, Achse 2 x=98, Achse 3 x=168 (je 5mm breit) -->
+<rect x="25.5" y="52" width="5" height="205" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="95.5" y="52" width="5" height="205" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="165.5" y="52" width="5" height="205" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+
+<!-- Rohdecken (Slab tops bold, slab body hatched, 5mm dick) -->
+<!-- Dach: y=47–52 -->
+<rect x="25.5" y="47" width="145" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<!-- 1.OG: y=152–157 -->
+<rect x="25.5" y="152" width="145" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<!-- EG: y=252–257 -->
+<rect x="25.5" y="252" width="145" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+
+<!-- Sichtbare Deckenuntersichten (Linie dünn) -->
+<line x1="30.5" y1="52" x2="95.5" y2="52" stroke="#000" stroke-width="0.18"/>
+<line x1="100.5" y1="52" x2="165.5" y2="52" stroke="#000" stroke-width="0.18"/>
+<line x1="30.5" y1="157" x2="95.5" y2="157" stroke="#000" stroke-width="0.18"/>
+<line x1="100.5" y1="157" x2="165.5" y2="157" stroke="#000" stroke-width="0.18"/>
+<line x1="30.5" y1="257" x2="95.5" y2="257" stroke="#000" stroke-width="0.18"/>
+<line x1="100.5" y1="257" x2="165.5" y2="257" stroke="#000" stroke-width="0.18"/>
+
+<!-- Fußbodenoberflächen (thin) -->
+<line x1="30.5" y1="152" x2="95.5" y2="152" stroke="#000" stroke-width="0.22"/>
+<line x1="100.5" y1="152" x2="165.5" y2="152" stroke="#000" stroke-width="0.22"/>
+<line x1="30.5" y1="252" x2="95.5" y2="252" stroke="#000" stroke-width="0.22"/>
+<line x1="100.5" y1="252" x2="165.5" y2="252" stroke="#000" stroke-width="0.22"/>
+
+<!-- Achskreise oben -->
+<g fill="#fff" stroke="#000" stroke-width="0.32">
+  <circle cx="28" cy="38" r="5.5"/>
+  <circle cx="98" cy="38" r="5.5"/>
+  <circle cx="168" cy="38" r="5.5"/>
+</g>
+<g font-family="'Space Mono','Courier New',monospace" font-size="5.2" text-anchor="middle" fill="#000" font-weight="700">
+  <text x="28"  y="40.2">A</text>
+  <text x="98"  y="40.2">B</text>
+  <text x="168" y="40.2">C</text>
+</g>
+<!-- Achslinien (Strichpunkt) -->
+<g stroke="#000" stroke-width="0.2" stroke-dasharray="3 1.5 0.6 1.5">
+  <line x1="28"  y1="44" x2="28"  y2="265"/>
+  <line x1="98"  y1="44" x2="98"  y2="265"/>
+  <line x1="168" y1="44" x2="168" y2="265"/>
+</g>
+
+<!-- Höhenmarken rechts -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="3.2" fill="#000">
+  <!-- Dach -->
+  <line x1="172" y1="49" x2="194" y2="49" stroke="#000" stroke-width="0.22"/>
+  <polygon points="176,49 172,46.5 172,51.5" fill="#000"/>
+  <text x="195" y="50.5">+7.50</text>
+  <!-- 1.OG -->
+  <line x1="172" y1="154" x2="194" y2="154" stroke="#000" stroke-width="0.22"/>
+  <polygon points="176,154 172,151.5 172,156.5" fill="#000"/>
+  <text x="195" y="155.5">+3.75</text>
+  <!-- EG -->
+  <line x1="172" y1="254" x2="194" y2="254" stroke="#000" stroke-width="0.22"/>
+  <polygon points="176,254 172,251.5 172,256.5" fill="#000"/>
+  <text x="195" y="255.5">±0.00</text>
+</g>
+
+<!-- Schnitt-Bezeichnutng oben -->
+<text x="14" y="19" font-family="'Space Mono','Courier New',monospace" font-size="3.8" fill="#000" letter-spacing="0.05em">SCHNITT A-A &nbsp; M 1:75</text>
+<line x1="14" y1="22" x2="180" y2="22" stroke="#000" stroke-width="0.25"/>
+
+<!-- Falzlinie -->
+<line x1="210" y1="0" x2="210" y2="297" stroke="#000" stroke-width="0.22" stroke-dasharray="4 2.5"/>
+
+
+<!-- ─── TITELSEITE (rechts, x=210–420) ────────────────────────── -->
+
+<!-- Gleicher Schnitt-Stil aber mit mehr Etagen -->
+
+<line x1="210" y1="262" x2="420" y2="262" stroke="#000" stroke-width="0.55"/>
+<rect x="210" y="262" width="210" height="35" fill="url(#erde)" opacity="0.35"/>
+<rect x="222" y="257" width="184" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.45"/>
+
+<!-- 4 Stützen auf Titelseite: x=228, x=288, x=348, x=408 -->
+<rect x="225.5" y="32" width="5" height="225" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="285.5" y="32" width="5" height="225" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="345.5" y="32" width="5" height="225" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="405.5" y="32" width="5" height="225" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+
+<!-- Rohdecken rechte Hälfte: Dach y=27, 2.OG y=107, 1.OG y=182, EG y=252 -->
+<rect x="225.5" y="27" width="185" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="225.5" y="107" width="185" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="225.5" y="182" width="185" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+<rect x="225.5" y="252" width="185" height="5" fill="url(#beton)" stroke="#000" stroke-width="0.42"/>
+
+<!-- Deckenuntersichten -->
+<g stroke="#000" stroke-width="0.18">
+  <line x1="230.5" y1="32"  x2="285.5" y2="32"/>
+  <line x1="290.5" y1="32"  x2="345.5" y2="32"/>
+  <line x1="350.5" y1="32"  x2="405.5" y2="32"/>
+  <line x1="230.5" y1="112" x2="285.5" y2="112"/>
+  <line x1="290.5" y1="112" x2="345.5" y2="112"/>
+  <line x1="350.5" y1="112" x2="405.5" y2="112"/>
+  <line x1="230.5" y1="187" x2="285.5" y2="187"/>
+  <line x1="290.5" y1="187" x2="345.5" y2="187"/>
+  <line x1="350.5" y1="187" x2="405.5" y2="187"/>
+</g>
+
+<!-- Fußbodenoberflächen rechts -->
+<g stroke="#000" stroke-width="0.22">
+  <line x1="230.5" y1="107" x2="285.5" y2="107"/>
+  <line x1="290.5" y1="107" x2="345.5" y2="107"/>
+  <line x1="350.5" y1="107" x2="405.5" y2="107"/>
+  <line x1="230.5" y1="182" x2="285.5" y2="182"/>
+  <line x1="290.5" y1="182" x2="345.5" y2="182"/>
+  <line x1="350.5" y1="182" x2="405.5" y2="182"/>
+  <line x1="230.5" y1="252" x2="285.5" y2="252"/>
+  <line x1="290.5" y1="252" x2="345.5" y2="252"/>
+  <line x1="350.5" y1="252" x2="405.5" y2="252"/>
+</g>
+
+<!-- Achskreise oben rechte Hälfte -->
+<g fill="#fff" stroke="#000" stroke-width="0.32">
+  <circle cx="228" cy="18" r="5.5"/>
+  <circle cx="288" cy="18" r="5.5"/>
+  <circle cx="348" cy="18" r="5.5"/>
+  <circle cx="408" cy="18" r="5.5"/>
+</g>
+<g font-family="'Space Mono','Courier New',monospace" font-size="5.2" text-anchor="middle" fill="#000" font-weight="700">
+  <text x="228" y="20.2">D</text>
+  <text x="288" y="20.2">E</text>
+  <text x="348" y="20.2">F</text>
+  <text x="408" y="20.2">G</text>
+</g>
+<g stroke="#000" stroke-width="0.2" stroke-dasharray="3 1.5 0.6 1.5">
+  <line x1="228" y1="24"  x2="228" y2="265"/>
+  <line x1="288" y1="24"  x2="288" y2="265"/>
+  <line x1="348" y1="24"  x2="348" y2="265"/>
+</g>
+
+<!-- Maßkette oben rechts (Achsabstände) -->
+<line x1="225.5" y1="8" x2="285.5" y2="8" stroke="#000" stroke-width="0.22"/>
+<line x1="285.5" y1="8" x2="345.5" y2="8" stroke="#000" stroke-width="0.22"/>
+<line x1="345.5" y1="8" x2="410.5" y2="8" stroke="#000" stroke-width="0.22"/>
+<!-- Ticks -->
+<g stroke="#000" stroke-width="0.3">
+  <line x1="222" y1="5.5" x2="229" y2="10.5"/>
+  <line x1="282" y1="5.5" x2="289" y2="10.5"/>
+  <line x1="342" y1="5.5" x2="349" y2="10.5"/>
+  <line x1="406" y1="5.5" x2="413" y2="10.5"/>
+</g>
+<!-- Maßzahlen -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="3" fill="#000" text-anchor="middle">
+  <text x="255.5" y="6.8">4.50</text>
+  <text x="315.5" y="6.8">4.50</text>
+  <text x="378"   y="6.8">4.50</text>
+</g>
+<!-- Verlängerungslinien -->
+<g stroke="#000" stroke-width="0.2">
+  <line x1="225.5" y1="6" x2="225.5" y2="27"/>
+  <line x1="285.5" y1="6" x2="285.5" y2="27"/>
+  <line x1="345.5" y1="6" x2="345.5" y2="27"/>
+  <line x1="410.5" y1="6" x2="410.5" y2="27"/>
+</g>
+
+</svg>
+
+<!-- TEXT: Rückseite (links) -->
+<div class="tx" style="left:34mm; top:100mm;">
+  <div style="font-size:30mm; font-weight:700; line-height:0.88; letter-spacing:-0.02em;">
+    25.<br>07.
+  </div>
+</div>
+<div class="tx" style="left:34mm; top:188mm; width:128mm; font-size:2.4mm; line-height:1.8;">
+  Hier entsteht eine Website.<br>
+  Sie wird von einem Beet gesteuert.<br>
+  Wir wissen noch nicht genau,<br>
+  was daraus wird.<br>
+  <br>
+  <strong>Komm vorbei.</strong>
+</div>
+<div class="tx" style="left:34mm; bottom:9mm; font-size:1.9mm; opacity:0.45; letter-spacing:0.1em;">
+  HAW HAMBURG &nbsp;·&nbsp; PERMACOMPUTING &nbsp;·&nbsp; 2025
+</div>
+
+<!-- TEXT: Titelseite (rechts) -->
+<!-- ROHBAU sitzt im Raum zwischen Achse E und G, y=37–180 -->
+<div class="tx" style="left:218mm; top:37mm; width:186mm;">
+  <div style="font-size:52mm; font-weight:700; line-height:0.88; letter-spacing:-0.025em; color:#000;">
+    ROH<br>BAU
+  </div>
+</div>
+
+<div class="tx" style="left:218mm; top:192mm; width:110mm; font-size:3.2mm; font-weight:700; letter-spacing:0.06em;">
+  betreten erwünscht
+</div>
+<div class="tx" style="left:218mm; top:202mm; width:180mm; font-size:2.5mm; line-height:1.75;">
+  Infos zu unserem Forschungsvorhaben<br>
+  Permacomputing generell<br>
+  KEBAP – KulturEnergieBunker Altona
+</div>
+
+<!-- Schnitt-Pfeil auf Titelseite -->
+<div class="tx" style="left:380mm; top:260mm; font-size:2.8mm; opacity:0.5; font-weight:700; letter-spacing:0.08em;">
+  A—A →
+</div>
+
+</div><!-- end SEITE A -->
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SEITE B — INNEN
+     Voller Gebäudequerschnitt als Grundlage
+     Links (x 0–210): Seite 2 — Permacomputing
+     Rechts (x 210–420): Seite 3 — KEBAP
+     ══════════════════════════════════════════════════════════════ -->
+<p class="hint">▲ SEITE B — innen drucken</p>
+<div class="sheet">
+<svg class="bg" viewBox="0 0 420 297" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <pattern id="beton2" patternUnits="userSpaceOnUse" width="4.5" height="4.5">
+    <line x1="0" y1="4.5" x2="4.5" y2="0" stroke="#000" stroke-width="0.28"/>
+  </pattern>
+  <pattern id="erde2" patternUnits="userSpaceOnUse" width="5" height="5">
+    <line x1="0" y1="5" x2="5" y2="0" stroke="#555" stroke-width="0.22"/>
+    <line x1="0" y1="2.5" x2="2.5" y2="0" stroke="#555" stroke-width="0.14"/>
+  </pattern>
+  <!-- Bewehrungssymbol (Rebar): kleiner Kreis, wird an Stützen-Ecken gesetzt -->
+  <circle id="rb" r="1.2" fill="#000"/>
+</defs>
+
+<!-- ─── ERDREICH & BODENPLATTE ─────────────────────────────────── -->
+<rect x="0" y="265" width="420" height="32" fill="url(#erde2)" opacity="0.35"/>
+<line x1="8" y1="265" x2="412" y2="265" stroke="#000" stroke-width="0.6"/>
+<!-- Bodenplatte 5mm dick -->
+<rect x="22" y="260" width="376" height="5" fill="url(#beton2)" stroke="#000" stroke-width="0.48"/>
+
+<!-- ─── VERTIKALE STÜTZEN — 7 Achsen ──────────────────────────── -->
+<!--
+  Achse:  1     2     3     4     5     6     7
+  x:     30    95   160   210   265   330   390
+  Bay:      65    65    50    55    65    60
+  (Bay 3 slightly narrower — it's split by fold; Bay 4/5 asymmetric for staircase)
+-->
+<!-- Stützenquerschnitte (4.5mm breit, Beton-Schraffur) -->
+<rect x="27.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<rect x="92.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<rect x="157.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<rect x="207.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<rect x="262.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<rect x="327.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<rect x="387.8" y="32" width="4.5" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+
+<!-- Bewehrung (Rebar-Punkte) an Stützenecken, exemplarisch für Achse 1 und 7 -->
+<g fill="#000">
+  <!-- Achse 1, EK bei y=32 -->
+  <use href="#rb" x="29.5" y="33.5"/>
+  <use href="#rb" x="31"   y="33.5"/>
+  <use href="#rb" x="29.5" y="35"/>
+  <use href="#rb" x="31"   y="35"/>
+  <!-- Achse 7, EK bei y=32 -->
+  <use href="#rb" x="389.5" y="33.5"/>
+  <use href="#rb" x="391"   y="33.5"/>
+  <use href="#rb" x="389.5" y="35"/>
+  <use href="#rb" x="391"   y="35"/>
+</g>
+
+<!-- Achslinien (Strichpunktlinie) -->
+<g stroke="#000" stroke-width="0.18" stroke-dasharray="3 1.5 0.7 1.5" opacity="0.7">
+  <line x1="30"  y1="24"  x2="30"  y2="268"/>
+  <line x1="95"  y1="24"  x2="95"  y2="268"/>
+  <line x1="160" y1="24"  x2="160" y2="268"/>
+  <line x1="210" y1="24"  x2="210" y2="268"/>
+  <line x1="265" y1="24"  x2="265" y2="268"/>
+  <line x1="330" y1="24"  x2="330" y2="268"/>
+  <line x1="390" y1="24"  x2="390" y2="268"/>
+</g>
+
+<!-- ─── HORIZONTALE ROHDECKEN — 5 Geschosse ──────────────────── -->
+<!--
+  Decke:  Dach   4.OG   3.OG   2.OG   1.OG
+  y (OK): 32     82     132    182    232
+  y (UK): 37     87     137    187    237   (5mm Deckendicke)
+  Lichte GH: 45mm ≈ 3.375m @ 1:75
+-->
+
+<!-- Dach / Attika -->
+<rect x="27.8" y="27" width="364.5" height="5" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<!-- Attika-Aufkantung links -->
+<rect x="27.8" y="17" width="5" height="10" fill="url(#beton2)" stroke="#000" stroke-width="0.35"/>
+<!-- Attika rechts -->
+<rect x="387.3" y="17" width="5" height="10" fill="url(#beton2)" stroke="#000" stroke-width="0.35"/>
+
+<!-- 4.OG -->
+<rect x="27.8" y="82" width="364.5" height="5" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<!-- 3.OG -->
+<rect x="27.8" y="132" width="364.5" height="5" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<!-- 2.OG -->
+<rect x="27.8" y="182" width="364.5" height="5" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+<!-- 1.OG -->
+<rect x="27.8" y="232" width="364.5" height="5" fill="url(#beton2)" stroke="#000" stroke-width="0.45"/>
+
+<!-- ─── SICHTBARE DECKEN-UNTERSICHTEN (hinter Schnittebene) ─── -->
+<!-- Dünne Linien zeigen die Deckenuntersicht (Rohbetondecke sichtbar) -->
+<g stroke="#000" stroke-width="0.18" opacity="0.65">
+  <!-- Zwischen jeder Stütze, alle Geschosse UK -->
+  <!-- 4.OG UK = y=87 -->
+  <line x1="32.3" y1="87" x2="92.8" y2="87"/>
+  <line x1="97.3" y1="87" x2="157.8" y2="87"/>
+  <line x1="162.3" y1="87" x2="207.8" y2="87"/>
+  <line x1="212.3" y1="87" x2="262.8" y2="87"/>
+  <line x1="267.3" y1="87" x2="327.8" y2="87"/>
+  <line x1="332.3" y1="87" x2="387.8" y2="87"/>
+  <!-- 3.OG UK = y=137 -->
+  <line x1="32.3" y1="137" x2="92.8" y2="137"/>
+  <line x1="97.3" y1="137" x2="157.8" y2="137"/>
+  <line x1="162.3" y1="137" x2="207.8" y2="137"/>
+  <line x1="212.3" y1="137" x2="262.8" y2="137"/>
+  <line x1="267.3" y1="137" x2="327.8" y2="137"/>
+  <line x1="332.3" y1="137" x2="387.8" y2="137"/>
+  <!-- 2.OG UK = y=187 -->
+  <line x1="32.3" y1="187" x2="92.8" y2="187"/>
+  <line x1="97.3" y1="187" x2="157.8" y2="187"/>
+  <line x1="162.3" y1="187" x2="207.8" y2="187"/>
+  <line x1="212.3" y1="187" x2="262.8" y2="187"/>
+  <line x1="267.3" y1="187" x2="327.8" y2="187"/>
+  <line x1="332.3" y1="187" x2="387.8" y2="187"/>
+  <!-- 1.OG UK = y=237 -->
+  <line x1="32.3" y1="237" x2="92.8" y2="237"/>
+  <line x1="97.3" y1="237" x2="157.8" y2="237"/>
+  <line x1="162.3" y1="237" x2="207.8" y2="237"/>
+  <line x1="212.3" y1="237" x2="262.8" y2="237"/>
+  <line x1="267.3" y1="237" x2="327.8" y2="237"/>
+  <line x1="332.3" y1="237" x2="387.8" y2="237"/>
+  <!-- Dach UK = y=32 -->
+  <line x1="32.3" y1="32" x2="92.8" y2="32"/>
+  <line x1="97.3" y1="32" x2="157.8" y2="32"/>
+  <line x1="162.3" y1="32" x2="207.8" y2="32"/>
+  <line x1="212.3" y1="32" x2="262.8" y2="32"/>
+  <line x1="267.3" y1="32" x2="327.8" y2="32"/>
+  <line x1="332.3" y1="32" x2="387.8" y2="32"/>
+</g>
+
+<!-- ─── FUSSBODENOBERFLÄCHEN (Rohbeton, thin bold) ────────────── -->
+<g stroke="#000" stroke-width="0.28">
+  <!-- 4.OG OK = y=82 -->
+  <line x1="32.3" y1="82" x2="92.8" y2="82"/>
+  <line x1="97.3" y1="82" x2="157.8" y2="82"/>
+  <line x1="162.3" y1="82" x2="207.8" y2="82"/>
+  <line x1="212.3" y1="82" x2="262.8" y2="82"/>
+  <line x1="267.3" y1="82" x2="327.8" y2="82"/>
+  <line x1="332.3" y1="82" x2="387.8" y2="82"/>
+  <!-- 3.OG OK = y=132 -->
+  <line x1="32.3" y1="132" x2="92.8" y2="132"/>
+  <line x1="97.3" y1="132" x2="157.8" y2="132"/>
+  <line x1="162.3" y1="132" x2="207.8" y2="132"/>
+  <line x1="212.3" y1="132" x2="262.8" y2="132"/>
+  <line x1="267.3" y1="132" x2="327.8" y2="132"/>
+  <line x1="332.3" y1="132" x2="387.8" y2="132"/>
+  <!-- 2.OG OK = y=182 -->
+  <line x1="32.3" y1="182" x2="92.8" y2="182"/>
+  <line x1="97.3" y1="182" x2="157.8" y2="182"/>
+  <line x1="162.3" y1="182" x2="207.8" y2="182"/>
+  <line x1="212.3" y1="182" x2="262.8" y2="182"/>
+  <line x1="267.3" y1="182" x2="327.8" y2="182"/>
+  <line x1="332.3" y1="182" x2="387.8" y2="182"/>
+  <!-- 1.OG OK = y=232 -->
+  <line x1="32.3" y1="232" x2="92.8" y2="232"/>
+  <line x1="97.3" y1="232" x2="157.8" y2="232"/>
+  <line x1="162.3" y1="232" x2="207.8" y2="232"/>
+  <line x1="212.3" y1="232" x2="262.8" y2="232"/>
+  <line x1="267.3" y1="232" x2="327.8" y2="232"/>
+  <line x1="332.3" y1="232" x2="387.8" y2="232"/>
+  <!-- EG OK = y=260 -->
+  <line x1="32.3" y1="260" x2="92.8" y2="260"/>
+  <line x1="97.3" y1="260" x2="157.8" y2="260"/>
+  <line x1="162.3" y1="260" x2="207.8" y2="260"/>
+  <line x1="212.3" y1="260" x2="262.8" y2="260"/>
+  <line x1="267.3" y1="260" x2="327.8" y2="260"/>
+  <line x1="332.3" y1="260" x2="387.8" y2="260"/>
+</g>
+
+<!-- ─── TREPPENHAUS (Bay 4: x=210–265, alle Geschosse) ─────────── -->
+<!-- Treppenhauswände (Betonwände im Schnitt) -->
+<rect x="207.8" y="32" width="3" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.38"/>
+<rect x="262.8" y="32" width="3" height="228" fill="url(#beton2)" stroke="#000" stroke-width="0.38"/>
+
+<!-- Treppenläufe — zigzag von EG bis Dach, jeweils halbe Höhe pro Lauf -->
+<!-- Lauf 1 (EG→1.OG, links): diagonal von x=212,y=260 nach x=258,y=232 -->
+<!-- mit gestaffelten Stufen (vereinfacht, 6 Stufen) -->
+<g stroke="#000" stroke-width="0.32" fill="none">
+  <!-- EG → 1.OG linker Lauf -->
+  <polyline points="
+    212,260 216,260 216,256 220,256 220,252 224,252 224,248 228,248 228,244 232,244 232,240 236,240 236,237"/>
+  <!-- 1.OG Podest -->
+  <line x1="212" y1="237" x2="258" y2="237" stroke="#000" stroke-width="0.35"/>
+  <!-- 1.OG → 2.OG rechter Lauf -->
+  <polyline points="
+    258,237 254,237 254,233 250,233 250,229 246,229 246,225 242,225 242,221 238,221 238,217 234,217 234,214"/>
+  <!-- Podest 2.OG -->
+  <line x1="212" y1="214" x2="258" y2="214" stroke="#000" stroke-width="0.28" stroke-dasharray="2 1"/>
+  <!-- 2.OG → 3.OG -->
+  <polyline points="
+    212,214 216,214 216,210 220,210 220,206 224,206 224,202 228,202 228,198 232,198 232,194 236,194 236,191"/>
+  <line x1="212" y1="191" x2="258" y2="191" stroke="#000" stroke-width="0.28" stroke-dasharray="2 1"/>
+  <!-- 3.OG → 4.OG -->
+  <polyline points="
+    258,191 254,191 254,187 250,187 250,183 246,183 246,179 242,179 242,175 238,175 238,171 234,171 234,168"/>
+  <line x1="212" y1="168" x2="258" y2="168" stroke="#000" stroke-width="0.28" stroke-dasharray="2 1"/>
+  <!-- 4.OG → Dach -->
+  <polyline points="
+    212,168 216,168 216,164 220,164 220,160 224,160 224,156 228,156 228,152 232,152 232,148 236,148 236,145"/>
+  <!-- Dach-Podest -->
+  <line x1="212" y1="145" x2="258" y2="145" stroke="#000" stroke-width="0.35"/>
+</g>
+<!-- Treppenhaus-Schraffur (leicht) auf den Wänden -->
+<!-- Already handled by the column sections above -->
+
+<!-- ─── UNTERZÜGE (Träger an Deckenuntersicht, Bay 1 sichtbar) ── -->
+<!-- Unterzug als dünnes Rechteck hängend unter Decke, Bay 1+2+5+6 -->
+<g stroke="#000" stroke-width="0.22" fill="none">
+  <!-- Bay 1 (x:32–93), alle Etagen -->
+  <rect x="52" y="87" width="20" height="6"/>
+  <rect x="52" y="137" width="20" height="6"/>
+  <rect x="52" y="187" width="20" height="6"/>
+  <rect x="52" y="237" width="20" height="6"/>
+  <!-- Bay 6 (x:332–388) -->
+  <rect x="352" y="87" width="20" height="6"/>
+  <rect x="352" y="137" width="20" height="6"/>
+  <rect x="352" y="187" width="20" height="6"/>
+  <rect x="352" y="237" width="20" height="6"/>
+</g>
+
+<!-- ─── ACHSKREISE ─────────────────────────────────────────────── -->
+<g fill="#fff" stroke="#000" stroke-width="0.32">
+  <circle cx="30"  cy="14" r="5.8"/>
+  <circle cx="95"  cy="14" r="5.8"/>
+  <circle cx="160" cy="14" r="5.8"/>
+  <circle cx="210" cy="14" r="5.8"/>
+  <circle cx="265" cy="14" r="5.8"/>
+  <circle cx="330" cy="14" r="5.8"/>
+  <circle cx="390" cy="14" r="5.8"/>
+</g>
+<g font-family="'Space Mono','Courier New',monospace" font-size="5.4" text-anchor="middle"
+   dominant-baseline="central" fill="#000" font-weight="700">
+  <text x="30"  y="14.5">1</text>
+  <text x="95"  y="14.5">2</text>
+  <text x="160" y="14.5">3</text>
+  <text x="210" y="14.5">4</text>
+  <text x="265" y="14.5">5</text>
+  <text x="330" y="14.5">6</text>
+  <text x="390" y="14.5">7</text>
+</g>
+
+<!-- Verbindungslinien Achskreis → Schnittbeginn -->
+<g stroke="#000" stroke-width="0.2">
+  <line x1="30"  y1="19.8" x2="30"  y2="23"/>
+  <line x1="95"  y1="19.8" x2="95"  y2="23"/>
+  <line x1="160" y1="19.8" x2="160" y2="23"/>
+  <line x1="210" y1="19.8" x2="210" y2="23"/>
+  <line x1="265" y1="19.8" x2="265" y2="23"/>
+  <line x1="330" y1="19.8" x2="330" y2="23"/>
+  <line x1="390" y1="19.8" x2="390" y2="23"/>
+</g>
+
+<!-- ─── HORIZONTALE MAẞKETTE (oben) ─────────────────────────────── -->
+<!-- Maßlinie bei y=4, von x=30 bis x=390 -->
+<line x1="30" y1="4" x2="390" y2="4" stroke="#000" stroke-width="0.2"/>
+<g stroke="#000" stroke-width="0.28">
+  <!-- Ticks -->
+  <line x1="27"  y1="2" x2="33"  y2="6"/>
+  <line x1="92"  y1="2" x2="98"  y2="6"/>
+  <line x1="157" y1="2" x2="163" y2="6"/>
+  <line x1="207" y1="2" x2="213" y2="6"/>
+  <line x1="262" y1="2" x2="268" y2="6"/>
+  <line x1="327" y1="2" x2="333" y2="6"/>
+  <line x1="387" y1="2" x2="393" y2="6"/>
+</g>
+<!-- Verlängerungslinien nach unten -->
+<g stroke="#000" stroke-width="0.18" stroke-dasharray="1 1.2">
+  <line x1="30"  y1="5" x2="30"  y2="22"/>
+  <line x1="95"  y1="5" x2="95"  y2="22"/>
+  <line x1="160" y1="5" x2="160" y2="22"/>
+  <line x1="210" y1="5" x2="210" y2="22"/>
+  <line x1="265" y1="5" x2="265" y2="22"/>
+  <line x1="330" y1="5" x2="330" y2="22"/>
+  <line x1="390" y1="5" x2="390" y2="22"/>
+</g>
+<!-- Maßzahlen -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="2.9" fill="#000" text-anchor="middle">
+  <text x="62.5"  y="2.8">4.875</text>
+  <text x="127.5" y="2.8">4.875</text>
+  <text x="185"   y="2.8">3.75</text>
+  <text x="237.5" y="2.8">4.125</text>
+  <text x="297.5" y="2.8">4.875</text>
+  <text x="360"   y="2.8">4.50</text>
+</g>
+
+<!-- ─── VERTIKALE MAẞKETTE (links) ─────────────────────────────── -->
+<!-- Maßlinie bei x=6, von y=32 bis y=260 -->
+<line x1="6" y1="32"  x2="6" y2="260" stroke="#000" stroke-width="0.2"/>
+<g stroke="#000" stroke-width="0.28">
+  <line x1="4" y1="29"   x2="8" y2="35"/>
+  <line x1="4" y1="79"   x2="8" y2="85"/>
+  <line x1="4" y1="129"  x2="8" y2="135"/>
+  <line x1="4" y1="179"  x2="8" y2="185"/>
+  <line x1="4" y1="229"  x2="8" y2="235"/>
+  <line x1="4" y1="257"  x2="8" y2="263"/>
+</g>
+<g stroke="#000" stroke-width="0.18" stroke-dasharray="1 1.2">
+  <line x1="6" y1="32"  x2="24" y2="32"/>
+  <line x1="6" y1="82"  x2="24" y2="82"/>
+  <line x1="6" y1="132" x2="24" y2="132"/>
+  <line x1="6" y1="182" x2="24" y2="182"/>
+  <line x1="6" y1="232" x2="24" y2="232"/>
+  <line x1="6" y1="260" x2="24" y2="260"/>
+</g>
+<!-- Maßzahlen vertikal, gedreht -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="2.8" fill="#000" text-anchor="middle">
+  <text transform="rotate(-90 2.8 57)"  x="2.8" y="57">3.38</text>
+  <text transform="rotate(-90 2.8 107)" x="2.8" y="107">3.38</text>
+  <text transform="rotate(-90 2.8 157)" x="2.8" y="157">3.38</text>
+  <text transform="rotate(-90 2.8 207)" x="2.8" y="207">3.38</text>
+  <text transform="rotate(-90 2.8 246)" x="2.8" y="246">2.10</text>
+</g>
+
+<!-- ─── HÖHENMARKEN (rechts) ──────────────────────────────────── -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="3.1" fill="#000">
+  <!-- Dach +16.88 -->
+  <polygon points="393,27 397,24.5 397,29.5" fill="#000"/>
+  <line x1="397" y1="27" x2="412" y2="27" stroke="#000" stroke-width="0.22"/>
+  <text x="413" y="28.5">+16.88</text>
+
+  <!-- 4.OG +13.50 -->
+  <polygon points="393,82 397,79.5 397,84.5" fill="#000"/>
+  <line x1="397" y1="82" x2="412" y2="82" stroke="#000" stroke-width="0.22"/>
+  <text x="413" y="83.5">+13.50</text>
+
+  <!-- 3.OG +10.13 -->
+  <polygon points="393,132 397,129.5 397,134.5" fill="#000"/>
+  <line x1="397" y1="132" x2="412" y2="132" stroke="#000" stroke-width="0.22"/>
+  <text x="413" y="133.5">+10.13</text>
+
+  <!-- 2.OG +6.75 -->
+  <polygon points="393,182 397,179.5 397,184.5" fill="#000"/>
+  <line x1="397" y1="182" x2="412" y2="182" stroke="#000" stroke-width="0.22"/>
+  <text x="413" y="183.5">+6.75</text>
+
+  <!-- 1.OG +3.38 -->
+  <polygon points="393,232 397,229.5 397,234.5" fill="#000"/>
+  <line x1="397" y1="232" x2="412" y2="232" stroke="#000" stroke-width="0.22"/>
+  <text x="413" y="233.5">+3.38</text>
+
+  <!-- EG ±0.00 -->
+  <polygon points="393,260 397,257.5 397,262.5" fill="#000"/>
+  <line x1="397" y1="260" x2="412" y2="260" stroke="#000" stroke-width="0.22"/>
+  <text x="413" y="261.5">±0.00</text>
+</g>
+
+<!-- ─── MATERIAL-ANNOTATION ────────────────────────────────────── -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="2.6" fill="#000">
+  <!-- Stütze Achse 1 -->
+  <line x1="30" y1="58" x2="20" y2="68" stroke="#000" stroke-width="0.2"/>
+  <line x1="4"  y1="68" x2="20" y2="68" stroke="#000" stroke-width="0.2"/>
+  <text x="4" y="65.5">STB C30/37</text>
+  <!-- Bodenplatte -->
+  <line x1="50" y1="262" x2="50" y2="275" stroke="#000" stroke-width="0.2"/>
+  <line x1="50" y1="275" x2="20" y2="275" stroke="#000" stroke-width="0.2"/>
+  <text x="4" y="278.5">Bodenplatte d=25cm</text>
+</g>
+
+<!-- ─── SCHNITTBEZEICHNUNG ─────────────────────────────────────── -->
+<g font-family="'Space Mono','Courier New',monospace" font-size="3.2" fill="#000">
+  <text x="8" y="292" letter-spacing="0.05em">SCHNITT 1-7 &nbsp;&nbsp; M 1:75 &nbsp;&nbsp; ROHBAU QUERSCHNITT</text>
+</g>
+
+<!-- Schnitt-Pfeile links und rechts -->
+<g stroke="#000" stroke-width="0.4">
+  <!-- Links -->
+  <line x1="22" y1="27"  x2="26" y2="27"/>
+  <polygon points="22,27 25,25 25,29" fill="#000"/>
+  <!-- Rechts -->
+  <line x1="393" y1="27"  x2="397" y2="27"/>
+  <polygon points="397,27 394,25 394,29" fill="#000"/>
+</g>
+<text x="8" y="29" font-family="'Space Mono','Courier New',monospace" font-size="3" fill="#000">S</text>
+<text x="398" y="29" font-family="'Space Mono','Courier New',monospace" font-size="3" fill="#000">S</text>
+
+<!-- Falzlinie (innen, subtil) -->
+<line x1="210" y1="0" x2="210" y2="297" stroke="#000" stroke-width="0.18" stroke-dasharray="4 3" opacity="0.25"/>
+
+</svg>
+
+<!-- ═══════════════════════════════════════
+     TEXT — SEITE 2 (links, Bay 1+2, x:32–160mm)
+     Text im Zwischenraum: x≈34mm, Breite ≈ 118mm
+     Raumhöhen: EG y=265–287 → nicht genutzt
+     1.OG y=240–260mm → 20mm lichte Höhe
+     2.OG y=190–230mm → 38mm
+     3.OG y=140–180mm → 38mm
+     4.OG y=90–130mm → 38mm
+     Dach y=32–82mm → aber Dach = kein Nutzraum
+═══════════════════════════════════════ -->
+
+<!-- Heading "Perma- computing" — groß, Bay 1+2 oben (y=40–78mm, "4.OG-Raum") -->
+<div class="tx" style="left:34mm; top:39mm; width:120mm;">
+  <div style="font-size:14mm; font-weight:700; line-height:0.92; letter-spacing:-0.02em;">
+    Perma-<br>computing
+  </div>
+</div>
+
+<!-- Text-Block 1: in 3.OG-Raum, y=140mm → 178mm -->
+<div class="tx" style="left:34mm; top:143mm; width:120mm; font-size:2.15mm; line-height:1.85;">
+  Permacomputing überträgt Prinzipien der Nachhaltig-<br>
+  keit auf digitale Infrastrukturen. Statt endloser<br>
+  Aktualisierung und Ressourcenverbrauch: Langlebig-<br>
+  keit, Reparierbarkeit, bewusster Umgang mit Energie<br>
+  und Material.
+</div>
+
+<!-- Text-Block 2: in 2.OG-Raum, y=190mm → 228mm -->
+<div class="tx" style="left:34mm; top:193mm; width:120mm; font-size:2.15mm; line-height:1.85;">
+  Wir untersuchen Schnittstellen zwischen ökologischen<br>
+  Systemen und digitaler Infrastruktur. Der KEBAPgarten<br>
+  dient als lebendiges Labor — seine Umweltdaten als<br>
+  Eingabe für digitale Prozesse.<br>
+  <br>
+  Was passiert, wenn die Natur selbst zur Schnittstelle<br>
+  wird?
+</div>
+
+<!-- Text-Block 3: in 1.OG-Raum, y=240mm → 258mm -->
+<div class="tx" style="left:34mm; top:242mm; width:120mm; font-size:2.15mm; line-height:1.72;">
+  <strong>Unser Forschungsvorhaben</strong><br>
+  Infos zum Semesterende.
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     TEXT — SEITE 3 (rechts, Bay 5+6, x:265–387mm)
+     x: 268mm, Breite: 115mm
+═══════════════════════════════════════ -->
+
+<!-- Heading KEBAP: groß, 4.OG-Raum -->
+<div class="tx" style="left:268mm; top:39mm; width:118mm;">
+  <div style="font-size:14mm; font-weight:700; line-height:0.92; letter-spacing:-0.02em;">
+    KEBAP
+  </div>
+  <div style="font-size:2.6mm; margin-top:2mm; line-height:1.5; letter-spacing:0.04em;">
+    KulturEnergieBunker Altona Projekt
+  </div>
+</div>
+
+<!-- Text-Block KEBAP 1: 3.OG-Raum -->
+<div class="tx" style="left:268mm; top:143mm; width:118mm; font-size:2.15mm; line-height:1.85;">
+  Der KulturEnergieBunker Altona ist eine Initiative,<br>
+  die den ehemaligen Hochbunker an der Schomburgstraße<br>
+  zu einem gemeinschaftlich genutzten Kultur-, Bildungs-<br>
+  und Energieort entwickelt.<br>
+  <br>
+  Im KEBAPgarten erproben Anwohner*innen gemeinschaft-<br>
+  liches Gärtnern, urbane Selbstversorgung und geschlos-<br>
+  sene Stoffkreisläufe.
+</div>
+
+<!-- Text-Block KEBAP 2: 2.OG-Raum -->
+<div class="tx" style="left:268mm; top:193mm; width:118mm; font-size:2.15mm; line-height:1.85;">
+  Langfristig soll der Bunker Räume für Kultur, Werk-<br>
+  stätten, Bildung, gemeinschaftliches Kochen, Musik<br>
+  und einen öffentlich zugänglichen Dachgarten vereinen.<br>
+  <br>
+  Die Sensoren unserer Website befinden sich in den<br>
+  Beeten des KEBAP und machen Umweltbedingungen wie<br>
+  Licht, Regen oder Bodenfeuchtigkeit zu aktiven Be-<br>
+  standteilen einer digitalen Infrastruktur.
+</div>
+
+<!-- Text-Block KEBAP 3: 1.OG -->
+<div class="tx" style="left:268mm; top:242mm; width:118mm; font-size:2.15mm; line-height:1.72;">
+  KEBAP versteht den Umbau als offenen Prozess, in<br>
+  dem Nachbarschaft, Wissenstransfer und gemeinsames<br>
+  Handeln zentrale Bausteine sind.
+</div>
+
+</div><!-- end SEITE B -->
+
+</body>
+</html>
