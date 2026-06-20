@@ -1,1 +1,1 @@
-// main.js
+// main.js — Interaktivität kommt hier rein
