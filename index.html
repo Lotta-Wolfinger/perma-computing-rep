@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROHBAU</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+ROHBAU
   <svg id="drawing" viewBox="0 0 420 297" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
     <defs>
       <pattern id="beton" patternUnits="userSpaceOnUse" width="4.5" height="4.5">
@@ -48,7 +49,6 @@
 
     <!-- Dach — nur linker Teil -->
     <rect x="36" y="44" width="126" height="4" fill="url(#beton)" stroke="#000" stroke-width="0.4"/>
-
     <!-- Dach rechts — versetzt, etwas tiefer -->
     <rect x="303" y="55" width="89" height="4" fill="url(#beton)" stroke="#000" stroke-width="0.4"/>
 
@@ -98,7 +98,70 @@
       <line x1="307" y1="199" x2="362" y2="199"/>
       <line x1="364" y1="199" x2="390" y2="199"/>
     </g>
+<!-- ===== TEXTRÄUME ===== -->
 
+<!-- Raum links oben -->
+<foreignObject x="40" y="48" width="63" height="82">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum A
+  </div>
+</foreignObject>
+
+<!-- Raum links mitte -->
+<foreignObject x="40" y="134" width="63" height="61">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum B
+  </div>
+</foreignObject>
+
+<!-- Raum links unten -->
+<foreignObject x="40" y="199" width="63" height="67">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum C
+  </div>
+</foreignObject>
+
+<!-- Raum zwischen B und C-Achse unten -->
+<foreignObject x="107" y="199" width="49" height="67">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum D
+  </div>
+</foreignObject>
+
+<!-- Raum Mitte oben -->
+<foreignObject x="160" y="48" width="143" height="82">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum E
+  </div>
+</foreignObject>
+
+<!-- Raum Mitte unten links -->
+<foreignObject x="160" y="199" width="38" height="67">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum F
+  </div>
+</foreignObject>
+
+<!-- Raum Mitte unten rechts -->
+<foreignObject x="202" y="134" width="101" height="132">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum G
+  </div>
+</foreignObject>
+
+<!-- Raum rechts oben -->
+<foreignObject x="307" y="59" width="81" height="136">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum H
+  </div>
+</foreignObject>
+
+<!-- Raum rechts unten -->
+<foreignObject x="307" y="199" width="81" height="67">
+  <div xmlns="http://www.w3.org/1999/xhtml" class="room-box">
+    Raum I
+  </div>
+</foreignObject>
   </svg>
 
   <script src="js/main.js"></script>

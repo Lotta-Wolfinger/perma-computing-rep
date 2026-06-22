@@ -1,0 +1,38 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+#drawing {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.room-box {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  box-sizing: border-box;
+
+  font-family: Arial, sans-serif;
+  font-size: 7px;
+  line-height: 1.2;
+
+  overflow: hidden;
+
+  /* zum Debuggen */
+  /* border: 0.3px solid red; */
+}
